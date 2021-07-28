@@ -9,7 +9,11 @@ class PageController extends Controller
     //
     public function show()
     {
-        return view('inicio');
+        // forma de depurar codigo
+        // dd('entro');
+        $users=['Juan','Carlos','Franz'];
+        // $users=[];
+        return view('inicio', compact('users'));
     }
 
     public function saludo()

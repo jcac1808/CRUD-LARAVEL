@@ -15,4 +15,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'PageController@show');
 Route::get('/saludo', 'PageController@saludo');
-Route::get('/contacto', 'PageController@contacto');
+Route::get('/contacto', 'PageController@contacto');;
