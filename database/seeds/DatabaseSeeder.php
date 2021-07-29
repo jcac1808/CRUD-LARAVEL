@@ -12,10 +12,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UserSeeder::class);
+        // limpia los datos
         $this->truncateTables(['users', 'professions']);
 
-
+        // Inserta los datos
         $this->call(ProfessionSeeder::class);
         $this->call(UserSeeder::class);
     }
