@@ -36,4 +36,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /** Relacion en ORM Eloquent */
+    public function profession()
+    {
+        return $this->belongsTo(Profession::class);
+    }
 }
