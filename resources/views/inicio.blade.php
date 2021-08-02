@@ -11,4 +11,6 @@
         <p>No existe registros de usuarios</p>
     @endforelse
 
+
+    <a href="{{ route('user.new') }}">Nuevo usuario</a>
 @endsection

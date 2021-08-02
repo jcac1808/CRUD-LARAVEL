@@ -17,3 +17,8 @@ Route::get('/', 'PageController@show')->name('home');
 Route::get('/usuario/{id}', 'PageController@showuser')->name('user.detail');
 Route::get('/saludo', 'PageController@saludo')->name('hello');
 Route::get('/contacto', 'PageController@contacto')->name('contact');
+Route::get('/nuevo', 'PageController@nuevo')->name('user.new');
+
+Route::post('/usuario/crear', 'PageController@store');
+
+/** Puede haber dos rutas con el mismo nombre pero con distinto metodo de envio (post, get, etc. ) */
