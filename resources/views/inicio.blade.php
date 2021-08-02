@@ -5,9 +5,10 @@
     
     <h2>Inicio</h2>
     @forelse($users as $user)
-        <p>{{ $user }}</p>
+        {{-- <p><a href="{{ url('/usuario/'.$user->id) }}">{{ $user->name }}</a></p> --}}
+        <p><a href="{{ route('user.detail',['id'=>$user->id]) }}">{{ $user->name }}</a></p>
     @empty
-        <p>no existe registros de usuarios</p>
+        <p>No existe registros de usuarios</p>
     @endforelse
 
 @endsection
