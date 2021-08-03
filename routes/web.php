@@ -22,3 +22,6 @@ Route::get('/nuevo', 'PageController@nuevo')->name('user.new');
 Route::post('/usuario/crear', 'PageController@store');
 
 /** Puede haber dos rutas con el mismo nombre pero con distinto metodo de envio (post, get, etc. ) */
+Route::get('/usuario/{user}/editar', 'PageController@editar')->name('user.editar');
+
+Route::put('/usuario/{user}', 'PageController@actualizar');
