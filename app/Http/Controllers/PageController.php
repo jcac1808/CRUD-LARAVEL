@@ -44,12 +44,14 @@ class PageController extends Controller
     {
         $data = request()->validate([
             'profession_id' => 'required',
-            'name' => 'required',
+            'name' => ['required','email', 'unique:users,email'],
             'email' => 'required',
+            'pwd' => ''
         ],[
             'profession_id.required' => 'Escoja el codigo de la profesion',
             'name.required' => 'El campo nombre es obligarotio',
-            'email.required' => 'El campo correo electronido es obligarotio'
+            'email.required' => 'El campo correo electronido es obligarotio',
+            'pwd' => 'La contraseña es obligarotio'
         ]);
 
         // $data = request()->all();
