@@ -1,3 +1,7 @@
+@extends('layout')
+
+@section('content')
+    
 <h2>Usuario</h2>
 
 @if (empty($user))
@@ -11,3 +15,5 @@
 
 {{-- <a href="{{ url('/') }}">Volver</a> --}}
 <a href="{{ route('home') }}">Volver</a>
+    
+@endsection
