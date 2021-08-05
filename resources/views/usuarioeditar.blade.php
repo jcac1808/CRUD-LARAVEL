@@ -9,10 +9,15 @@
             {!! csrf_field() !!}
             <div class="form-group">
                 <label for="profession_id">Id profesion</label>
-                <input type="number" name="profession_id" id="profession_id" class="form-control" value="{{ old('profession_id', $user->profession_id) }}">    
-                @if ($errors->has('profession_id'))
-                    <small class="form-text text-danger">{{ $errors->first('profession_id') }}</small>
-                @endif
+                <select name="profession_id" id="profession_id" class="form-control form-control-lg">
+                    @foreach ($profesiones as $profesion)
+                        @if ($profesion->id === $user->profession_id)
+                            <option value="{{ $profesion->id }}" selected>{{ $profesion->title }}</option>    
+                        @else
+                            <option value="{{ $profesion->id }}">{{ $profesion->title }}</option>
+                        @endif
+                    @endforeach
+                </select>
             </div>
         
             <div class="form-group">
@@ -41,10 +46,4 @@
         </form>
     </div>
 </div>
-
-{{-- {{ $user->id }}
-{{ $user->profession_id }}
-{{ $user->name }}
-<br>
-{{ $user->email }} --}}
 @endsection

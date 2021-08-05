@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Profession;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -37,7 +38,8 @@ class PageController extends Controller
 
     public function nuevo()
     {
-        return view('usuariocrear');
+        $profesiones=Profession::get();
+        return view('usuariocrear', compact('profesiones'));
     }
 
     public function store()
@@ -68,7 +70,8 @@ class PageController extends Controller
 
     public function editar(User $user)
     {
-        return view('usuarioeditar', compact('user')); 
+        $profesiones=Profession::get();
+        return view('usuarioeditar', compact('user','profesiones')); 
     }
 
     public function actualizar(User $user)
@@ -80,16 +83,15 @@ class PageController extends Controller
             'email' => 'required|email|unique:users,email,'.$user->id,
             'pwd' => ''
         ],[
-            'id'=>'Seleccione un usuario',
             'profession_id.required' => 'Escoja el codigo de la profesion',
             'name.required' => 'El campo nombre es obligarotio',
             'email.required' => 'El campo correo electronido es obligarotio',
             'email.unique' => 'El correo electronido ya ha sido registrado'
         ]);
 
+        $user->profession_id=$data['profession_id'];
         $data['pwd']=bcrypt($data['pwd']);
         $user->update($data);
-
         return redirect()->route('home');
     }
 

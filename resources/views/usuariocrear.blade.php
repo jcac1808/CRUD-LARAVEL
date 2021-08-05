@@ -18,11 +18,12 @@
     <form action="{{ url('usuario/crear') }}" method="POST">
       {!! csrf_field() !!}
       <div class="form-group">
-        <label for="profession_id">Id profesion</label>
-        <input type="number" name="profession_id" id="profession_id" class="form-control" value="{{ old('profession_id') }}">
-        @if ($errors->has('profession_id'))
-          <small class="form-text text-danger" >{{ $errors->first('profession_id') }}</small>
-        @endif
+        <label for="profession_id">Profesi&oacute;n</label>
+        <select name="profession_id" id="profession_id" class="form-control form-control-lg">
+          @foreach ($profesiones as $profesion)
+            <option value="{{ $profesion->id }}">{{ $profesion->title }}</option>    
+          @endforeach
+        </select>
       </div>
 
       <div class="form-group">
