@@ -2,8 +2,8 @@
 
 @section('content')
     
-<h2>Usuario</h2>
-
+<h2>Informaci&oacute;n</h2>
+<h3>Datos del usuario</h3>
 @if (empty($user))
     <p>No existe registros</p>
 @else

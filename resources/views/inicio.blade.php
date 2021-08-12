@@ -8,6 +8,11 @@
         <a href="{{ route('user.new') }}" class="btn btn-primary" >Nuevo usuario</a>
     </div>
     
+
+    <div class="d-flex justify-content-between align-items-end mb-3">
+        <h3 class="pb-1">Lista de usuarios</h3>
+    </div>
+
     <table class="table">
         <thead class="thead-dark">
         <tr>
